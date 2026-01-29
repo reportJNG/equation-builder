@@ -1,4 +1,9 @@
 {
-  "welcome": "Welcome to my app!",
-  "hello": "Hello, user!"
+  "title": "Brain Equation",
+  "subtitle": "Use your brain, not a calculator",
+  "tryWordle": "Try Wordle vibe",
+  "playNow": "Play now",
+  "play": "Play",
+  "settings": "Settings",
+  "visit": "Visit"
 }

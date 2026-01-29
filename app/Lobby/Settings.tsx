@@ -2,10 +2,8 @@ import styles from "./Setting.module.css";
 import { X, LanguagesIcon, Music, Volume } from "lucide-react";
 
 interface Settingsprops {
-  lang: "Arabic" | "English" | "french";
-  setLang: React.Dispatch<
-    React.SetStateAction<"Arabic" | "English" | "french">
-  >;
+  lang: "en" | "fr" | "ar";
+  setLang: React.Dispatch<React.SetStateAction<"en" | "fr" | "ar">>;
   volume: number;
   setVolume: React.Dispatch<React.SetStateAction<number>>;
   sound: boolean;
@@ -24,7 +22,7 @@ export default function Settings({
   setLang,
   changelang,
 }: Settingsprops) {
-  const change = (text: "English" | "Arabic" | "french") => {
+  const change = (text: "en" | "fr" | "ar") => {
     setLang(text);
     changelang();
   };
@@ -95,40 +93,34 @@ export default function Settings({
             <div className={styles.actionminibox}>
               <button
                 className={
-                  lang === "English"
-                    ? styles.buttoncheckyes
-                    : styles.buttoncheckno
+                  lang === "en" ? styles.buttoncheckyes : styles.buttoncheckno
                 }
                 title="English"
                 aria-label="English"
-                onClick={() => change("English")}
-                data-selected={lang === "English"}
+                onClick={() => change("en")}
+                data-selected={lang === "en"}
               >
                 English
               </button>
               <button
                 className={
-                  lang === "french"
-                    ? styles.buttoncheckyes
-                    : styles.buttoncheckno
+                  lang === "fr" ? styles.buttoncheckyes : styles.buttoncheckno
                 }
                 title="Francais"
                 aria-label="Francais"
-                onClick={() => change("french")}
-                data-selected={lang === "french"}
+                onClick={() => change("fr")}
+                data-selected={lang === "fr"}
               >
                 Francais
               </button>
               <button
                 className={
-                  lang === "Arabic"
-                    ? styles.buttoncheckyes
-                    : styles.buttoncheckno
+                  lang === "ar" ? styles.buttoncheckyes : styles.buttoncheckno
                 }
                 title="العربية"
                 aria-label="العربية"
-                onClick={() => change("Arabic")}
-                data-selected={lang === "Arabic"}
+                onClick={() => change("ar")}
+                data-selected={lang === "ar"}
               >
                 العربية
               </button>
