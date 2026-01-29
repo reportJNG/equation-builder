@@ -58,7 +58,6 @@
 .right:hover {
   background: rgba(0, 212, 255, 0.15);
   border-color: rgba(0, 212, 255, 0.3);
-  transform: rotate(90deg) scale(1.1);
 }
 
 .closebtn {
