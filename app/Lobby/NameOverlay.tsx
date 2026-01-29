@@ -25,8 +25,8 @@ export default function NameOverlay({
         <div className={styles.commenteretxt}>
           <p>
             {" "}
-            Pick numbers and operators carefully to match the target. Think
-            twice before submitting!
+            Pick numbers and operators carefully to match the target Think twice
+            before submitting !!
           </p>
         </div>
       </div>
@@ -34,7 +34,7 @@ export default function NameOverlay({
         <div className={styles.inputhandler}>
           <input
             type="text"
-            maxLength={30}
+            maxLength={20}
             minLength={3}
             placeholder="Name ..."
             aria-label="Name ..."

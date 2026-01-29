@@ -1,6 +1,7 @@
 import styles from "./Lobbyhandler.module.css";
 import { useState } from "react";
-
+import NameOverlay from "./NameOverlay";
+import Settings from "./Settings";
 export default function Lobbyhandler() {
   // Lobby state management
   const [hanlderlobby, setHandlerlobby] = useState<{
@@ -17,7 +18,14 @@ export default function Lobbyhandler() {
       ) as typeof hanlderlobby,
     );
   };
-
+  //settings state management
+  const [volume, setVolume] = useState<number>(50);
+  const [lang, setLang] = useState<"Arabic" | "English">("English");
+  //name state managment
+  const [name, setName] = useState<string>("");
+  const startgame = () => {
+    lobbyfunchanlder("play");
+  };
   return (
     <div className={styles.container}>
       {hanlderlobby?.lobby && (
@@ -39,7 +47,6 @@ export default function Lobbyhandler() {
           <div className={styles.body}>
             <div className={styles.leftbox}>
               {" "}
-              {/**here is is left box take full horizantal background in css with image */}
               <div className={styles.midbox}>
                 <div className={styles.titleads}>
                   <p className={styles.adstxt}>Try Wordle vibe</p>
@@ -58,12 +65,11 @@ export default function Lobbyhandler() {
             </div>
 
             <div className={styles.rightbox}>
-              {/**this is the mid box the take mid and right side */}
               <div className={styles.actionhandler}>
                 <div className={styles.buttonhandler}>
                   <button
                     className={styles.btn}
-                    onClick={() => lobbyfunchanlder("play")}
+                    onClick={() => lobbyfunchanlder("name")}
                     aria-label="Play"
                     title="Play"
                   >
@@ -91,6 +97,16 @@ export default function Lobbyhandler() {
               </div>
             </div>
           </div>
+        </>
+      )}
+      {hanlderlobby?.name && (
+        <>
+          <NameOverlay name={name} setName={setName} start={startgame} />
+        </>
+      )}
+      {hanlderlobby.settings && (
+        <>
+          <Settings lang={lang} volume={volume} setVolume={setVolume} />
         </>
       )}
     </div>
