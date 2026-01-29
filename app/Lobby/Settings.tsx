@@ -1,4 +1,5 @@
 import styles from "./Setting.module.css";
+import { X, LanguagesIcon, Music, Volume } from "lucide-react";
 interface Settingsprops {
   lang: "Arabic" | "English" | "french";
   setLang: React.Dispatch<
@@ -29,13 +30,17 @@ export default function Settings({
     <div className={styles.container}>
       <div className={styles.upper}>
         <div className={styles.right} onClick={() => close}>
-          close
+          <span className={styles.closebtn}>
+            <X />
+          </span>
         </div>
       </div>
       <div className={styles.body}>
         <div className={styles.box}>
           <div className={styles.minibox}>
-            <h3 className={styles.titlest}>Music :</h3>
+            <h3 className={styles.titlest}>
+              Music <Music /> :
+            </h3>
             <div className={styles.actionminibox}>
               <button
                 className={`styles.${sound ? "on" : "off"}`}
@@ -56,7 +61,9 @@ export default function Settings({
             </div>
           </div>
           <div className={styles.minibox}>
-            <h3 className={styles.titlest}>Volume :</h3>
+            <h3 className={styles.titlest}>
+              Volume <Volume /> :
+            </h3>
             <div className={styles.actionminibox}>
               <input
                 type="radio"
@@ -70,7 +77,9 @@ export default function Settings({
             </div>
           </div>
           <div className={styles.minibox}>
-            <h3 className={styles.titlest}>Langague :</h3>
+            <h3 className={styles.titlest}>
+              Langague <LanguagesIcon /> :
+            </h3>
             <div className={styles.actionminibox}>
               <button
                 className={`styles.buttoncheck${lang === "English" ? "yes" : "no"}`}
