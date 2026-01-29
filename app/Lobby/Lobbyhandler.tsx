@@ -38,6 +38,8 @@ export default function Lobbyhandler() {
 
           <div className={styles.body}>
             <div className={styles.leftbox}>
+              {" "}
+              {/**here is is left box take full horizantal background in css with image */}
               <div className={styles.midbox}>
                 <div className={styles.titleads}>
                   <p className={styles.adstxt}>Try Wordle vibe</p>
@@ -56,6 +58,7 @@ export default function Lobbyhandler() {
             </div>
 
             <div className={styles.rightbox}>
+              {/**this is the mid box the take mid and right side */}
               <div className={styles.actionhandler}>
                 <div className={styles.buttonhandler}>
                   <button
