@@ -1,7 +1,7 @@
 import styles from "./Lobbyhandler.module.css";
 import { useState } from "react";
 export default function Lobbyhandler() {
-  //lobby button:
+  //lobby :
   const [hanlderlobby, setHandlerlobby] = useState<{
     play: boolean;
     settings: boolean;
@@ -16,13 +16,14 @@ export default function Lobbyhandler() {
       ) as typeof hanlderlobby,
     );
   };
+  //name :
   return (
     <div className={styles.container}>
       {hanlderlobby?.lobby && (
         <div className={styles.upperbody}>
           <div className={styles.titlehandler}>
             <div className={styles.animationtext}>
-              <span className={styles.brainhandleranimated}></span>{" "}
+              <span className={styles.brainhandleranimated}>🧠</span>{" "}
             </div>
             <div className={styles.texttitle}>
               <h1 className={styles.title}>BrainEquation</h1>
@@ -69,7 +70,9 @@ export default function Lobbyhandler() {
                 </button>
                 <button
                   className={styles.btn}
-                  onClick={() => window.open("", "_blank")}
+                  onClick={() =>
+                    window.open("https://remalihamza.vercel.app/", "_blank")
+                  }
                   aria-label="Visit"
                   title="Visit"
                 >
