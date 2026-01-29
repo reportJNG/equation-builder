@@ -1,1 +1,3 @@
-working on settings ;
+lobby done;
+gettingName() done;
+working on settings
