@@ -1,10 +1,15 @@
 import styles from "./Setting.module.css";
 interface Settingsprops {
   lang: "Arabic" | "English" | "french";
+  setLang: React.Dispatch<
+    React.SetStateAction<"Arabic" | "English" | "french">
+  >;
   volume: number;
   setVolume: React.Dispatch<React.SetStateAction<number>>;
   sound: boolean;
   setSound: React.Dispatch<React.SetStateAction<boolean>>;
+  close: () => void;
+  changelang: () => void;
 }
 export default function Settings({
   lang,
@@ -12,11 +17,20 @@ export default function Settings({
   setVolume,
   sound,
   setSound,
+  close,
+  setLang,
+  changelang,
 }: Settingsprops) {
+  const change = (text: "English" | "Arabic" | "french") => {
+    setLang(text);
+    changelang();
+  };
   return (
     <div className={styles.container}>
       <div className={styles.upper}>
-        <div className={styles.right}>close</div>
+        <div className={styles.right} onClick={() => close}>
+          close
+        </div>
       </div>
       <div className={styles.body}>
         <div className={styles.box}>
@@ -27,6 +41,7 @@ export default function Settings({
                 className={`styles.${sound ? "on" : "off"}`}
                 aria-label="On"
                 title="On"
+                onClick={() => setSound(true)}
               >
                 On
               </button>
@@ -34,6 +49,7 @@ export default function Settings({
                 className={`styles.${!sound ? "on" : "off"}`}
                 aria-label="Of"
                 title="Off"
+                onClick={() => setSound(false)}
               >
                 Off
               </button>
@@ -60,6 +76,7 @@ export default function Settings({
                 className={`styles.buttoncheck${lang === "English" ? "yes" : "no"}`}
                 title="English"
                 aria-label="English"
+                onClick={() => change("English")}
               >
                 English
               </button>
@@ -67,6 +84,7 @@ export default function Settings({
                 className={`styles.buttoncheck${lang === "french" ? "yes" : "no"}`}
                 title="Francais"
                 aria-label="Francais"
+                onClick={() => change("french")}
               >
                 Francais
               </button>
@@ -74,11 +92,16 @@ export default function Settings({
                 className={`styles.buttoncheck${lang === "Arabic" ? "yes" : "no"}`}
                 title="العربية"
                 aria-label="العربية"
+                onClick={() => change("Arabic")}
               >
                 العربية
               </button>
             </div>
           </div>
+        </div>
+        <div className={styles.bodyactions}>
+          <button onClick={() => close}>Close</button>
+          <button onClick={() => close}>Save</button>
         </div>
       </div>
     </div>
