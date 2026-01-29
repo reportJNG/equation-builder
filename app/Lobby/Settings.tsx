@@ -1,5 +1,6 @@
 import styles from "./Setting.module.css";
 import { X, LanguagesIcon, Music, Volume } from "lucide-react";
+
 interface Settingsprops {
   lang: "Arabic" | "English" | "french";
   setLang: React.Dispatch<
@@ -12,6 +13,7 @@ interface Settingsprops {
   close: () => void;
   changelang: () => void;
 }
+
 export default function Settings({
   lang,
   volume,
@@ -26,10 +28,15 @@ export default function Settings({
     setLang(text);
     changelang();
   };
+
+  const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setVolume(Number(e.target.value));
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.upper}>
-        <div className={styles.right} onClick={() => close}>
+        <div className={styles.right} onClick={close}>
           <span className={styles.closebtn}>
             <X />
           </span>
@@ -43,18 +50,24 @@ export default function Settings({
             </h3>
             <div className={styles.actionminibox}>
               <button
-                className={`styles.${sound ? "on" : "off"}`}
+                className={sound ? styles.on : styles.off}
                 aria-label="On"
                 title="On"
-                onClick={() => setSound(true)}
+                onClick={() => {
+                  setSound(true);
+                  setVolume(50);
+                }}
               >
                 On
               </button>
               <button
-                className={`styles.${!sound ? "on" : "off"}`}
-                aria-label="Of"
+                className={!sound ? styles.on : styles.off}
+                aria-label="Off"
                 title="Off"
-                onClick={() => setSound(false)}
+                onClick={() => {
+                  setSound(false);
+                  setVolume(0);
+                }}
               >
                 Off
               </button>
@@ -66,42 +79,56 @@ export default function Settings({
             </h3>
             <div className={styles.actionminibox}>
               <input
-                type="radio"
-                placeholder="Volume ..."
-                name="Music"
-                id="Music"
+                type="range"
+                min="0"
+                max="100"
                 value={volume}
-                onChange={(e) => setVolume(Number(e.target.value))}
+                onChange={handleVolumeChange}
                 className={styles.inputvolume}
               />
             </div>
           </div>
           <div className={styles.minibox}>
             <h3 className={styles.titlest}>
-              Langague <LanguagesIcon /> :
+              Language <LanguagesIcon /> :
             </h3>
             <div className={styles.actionminibox}>
               <button
-                className={`styles.buttoncheck${lang === "English" ? "yes" : "no"}`}
+                className={
+                  lang === "English"
+                    ? styles.buttoncheckyes
+                    : styles.buttoncheckno
+                }
                 title="English"
                 aria-label="English"
                 onClick={() => change("English")}
+                data-selected={lang === "English"}
               >
                 English
               </button>
               <button
-                className={`styles.buttoncheck${lang === "french" ? "yes" : "no"}`}
+                className={
+                  lang === "french"
+                    ? styles.buttoncheckyes
+                    : styles.buttoncheckno
+                }
                 title="Francais"
                 aria-label="Francais"
                 onClick={() => change("french")}
+                data-selected={lang === "french"}
               >
                 Francais
               </button>
               <button
-                className={`styles.buttoncheck${lang === "Arabic" ? "yes" : "no"}`}
+                className={
+                  lang === "Arabic"
+                    ? styles.buttoncheckyes
+                    : styles.buttoncheckno
+                }
                 title="العربية"
                 aria-label="العربية"
                 onClick={() => change("Arabic")}
+                data-selected={lang === "Arabic"}
               >
                 العربية
               </button>
@@ -109,8 +136,8 @@ export default function Settings({
           </div>
         </div>
         <div className={styles.bodyactions}>
-          <button onClick={() => close}>Close</button>
-          <button onClick={() => close}>Save</button>
+          <button onClick={close}>Close</button>
+          <button onClick={close}>Save</button>
         </div>
       </div>
     </div>

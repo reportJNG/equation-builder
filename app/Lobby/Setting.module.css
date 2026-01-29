@@ -1,0 +1,314 @@
+.container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 500px;
+
+  background: linear-gradient(145deg, #151530, #1a1a3a);
+  border-radius: 20px;
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  z-index: 1000;
+  overflow: hidden;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, sans-serif;
+  color: #fff;
+  animation: slideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.upper {
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px 20px 0;
+  background: linear-gradient(
+    to right,
+    rgba(21, 21, 48, 0.8),
+    rgba(21, 21, 60, 0.8)
+  );
+}
+
+.right {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.right:hover {
+  background: rgba(0, 212, 255, 0.15);
+  border-color: rgba(0, 212, 255, 0.3);
+  transform: rotate(90deg) scale(1.1);
+}
+
+.closebtn {
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 0.3s ease;
+}
+
+.right:hover .closebtn {
+  color: #00d4ff;
+}
+
+.closebtn svg {
+  width: 24px;
+  height: 24px;
+}
+
+.body {
+  padding: 20px 30px 30px;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.minibox {
+  background: rgba(0, 212, 255, 0.03);
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid rgba(0, 212, 255, 0.1);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.minibox:hover {
+  border-color: rgba(0, 212, 255, 0.3);
+  background: rgba(0, 212, 255, 0.05);
+}
+
+.titlest {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 20px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #e6e6e6;
+}
+
+.titlest svg {
+  width: 20px;
+  height: 20px;
+  color: #00d4ff;
+}
+
+.actionminibox {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.actionminibox button {
+  padding: 12px 28px;
+  border-radius: 12px;
+  border: none;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+}
+.actionminibox button.buttoncheckyes {
+  background: linear-gradient(135deg, #00d4ff, #ff00ff);
+  color: white;
+  border-color: rgba(255, 0, 255, 0.3);
+  box-shadow: 0 4px 20px rgba(255, 0, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+.actionminibox button.buttoncheckno {
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(255, 255, 255, 0.7);
+  border: 2px solid transparent;
+}
+
+.actionminibox button.on {
+  background: linear-gradient(135deg, #00d4ff, #00ffaa) !important;
+  color: white !important;
+  box-shadow: 0 4px 20px rgba(0, 212, 255, 0.4) !important;
+  transform: translateY(-2px);
+}
+
+.actionminibox button.off {
+  background: linear-gradient(135deg, #151530, #1a1a3a) !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.actionminibox button:not(.on):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.actionminibox:has(.inputvolume) {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.inputvolume {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  background: linear-gradient(to right, #00d4ff, #00ffaa);
+  outline: none;
+  opacity: 0.9;
+  transition: opacity 0.2s;
+  position: relative;
+}
+
+.inputvolume:hover {
+  opacity: 1;
+}
+
+.inputvolume::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  border: 2px solid #00ffaa;
+  transition: all 0.2s ease;
+}
+
+.inputvolume::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(0, 255, 170, 0.5);
+}
+
+.inputvolume::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  border: 2px solid #00ffaa;
+}
+
+.buttoncheckyes,
+.buttoncheckno {
+  padding: 14px 24px;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  flex: 1;
+  min-width: 100px;
+}
+
+.buttoncheckyes {
+  background: linear-gradient(135deg, #00d4ff, #ff00ff) !important;
+  color: white !important;
+  border-color: rgba(255, 0, 255, 0.3);
+  box-shadow: 0 4px 20px rgba(255, 0, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+.buttoncheckno:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+.bodyactions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.bodyactions button {
+  padding: 14px 32px;
+  border-radius: 12px;
+  border: none;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.bodyactions button:first-child {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.bodyactions button:last-child {
+  background: linear-gradient(135deg, #ff00ff, #00ffaa);
+  color: white;
+  box-shadow: 0 4px 20px rgba(255, 0, 255, 0.3);
+}
+
+.bodyactions button:first-child:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.bodyactions button:last-child:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(255, 0, 255, 0.4);
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: 95%;
+    max-width: none;
+  }
+  .body {
+    padding: 20px 15px 25px;
+  }
+  .minibox {
+    padding: 20px;
+  }
+  .actionminibox {
+    flex-direction: column;
+  }
+  .buttoncheckyes,
+  .buttoncheckno {
+    width: 100%;
+  }
+  .bodyactions {
+    flex-direction: column;
+  }
+  .bodyactions button {
+    width: 100%;
+  }
+}

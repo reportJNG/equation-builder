@@ -20,7 +20,11 @@ export default function Lobbyhandler() {
   };
   //settings state management
   const [volume, setVolume] = useState<number>(50);
-  const [lang, setLang] = useState<"Arabic" | "English">("English");
+  const [lang, setLang] = useState<"Arabic" | "English" | "french">("English");
+  const [sound, setSound] = useState<boolean>(false);
+
+  const changelangague = () => {};
+
   //name state managment
   const [name, setName] = useState<string>("");
   const startgame = () => {
@@ -86,7 +90,7 @@ export default function Lobbyhandler() {
                   <button
                     className={styles.btn}
                     onClick={() =>
-                      window.open("https://remalihamza.vercel.app/", "_blank")
+                      window.open("https://remalihamza.vercel.app/", "_self")
                     }
                     aria-label="Visit"
                     title="Visit"
@@ -106,7 +110,16 @@ export default function Lobbyhandler() {
       )}
       {hanlderlobby.settings && (
         <>
-          <Settings lang={lang} volume={volume} setVolume={setVolume} />
+          <Settings
+            lang={lang}
+            setLang={setLang}
+            volume={volume}
+            setVolume={setVolume}
+            setSound={setSound}
+            sound={sound}
+            close={() => lobbyfunchanlder("lobby")}
+            changelang={changelangague}
+          />
         </>
       )}
     </div>
