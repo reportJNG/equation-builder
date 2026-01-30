@@ -2,13 +2,9 @@ import styles from "./Lobbyhandler.module.css";
 import { useState } from "react";
 import NameOverlay from "./NameOverlay";
 import Settings from "./Settings";
-import { useTranslation } from "next-i18next";
-import { useRouter, usePathname } from "next/navigation";
 
 export default function Lobbyhandler() {
   // Lobby state management
-  const router = useRouter();
-  const pathname = usePathname();
   const [hanlderlobby, setHandlerlobby] = useState<{
     play: boolean;
     settings: boolean;
@@ -23,16 +19,9 @@ export default function Lobbyhandler() {
       ) as typeof hanlderlobby,
     );
   };
-  //updater all three langagues
-  const { t } = useTranslation("common");
-  const changeLanguage = (newLang: "en" | "fr" | "ar") => {
-    router.push(`/${newLang}${pathname}`);
-    document.documentElement.dir = newLang === "ar" ? "rtl" : "ltr";
-  };
 
   //settings state management
   const [volume, setVolume] = useState<number>(50);
-  const [lang, setLang] = useState<"en" | "fr" | "ar">("en");
   const [sound, setSound] = useState<boolean>(false);
 
   //name state managment
@@ -51,10 +40,12 @@ export default function Lobbyhandler() {
                 <span className={styles.brainhandleranimated}>🧠</span>
               </div>
               <div className={styles.texttitle}>
-                <h1 className={styles.title}>{t("title")}</h1>
+                <h1 className={styles.title}>Brain Equation</h1>
               </div>
               <div className={styles.description}>
-                <p className={styles.dsctxt}>{t("subtitle")}</p>
+                <p className={styles.dsctxt}>
+                  Use your brain, not a calculator
+                </p>
               </div>
             </div>
           </div>
@@ -64,7 +55,7 @@ export default function Lobbyhandler() {
               {" "}
               <div className={styles.midbox}>
                 <div className={styles.titleads}>
-                  <p className={styles.adstxt}>{t("Try Wordle vibe")}</p>
+                  <p className={styles.adstxt}>Try Wordle vibe</p>
                 </div>
                 <div className={styles.actions}>
                   <button
@@ -73,7 +64,7 @@ export default function Lobbyhandler() {
                     aria-label="Play now"
                     title="Play now"
                   >
-                    {t("Play now")}
+                    Play now
                   </button>
                 </div>
               </div>
@@ -88,7 +79,7 @@ export default function Lobbyhandler() {
                     aria-label="Play"
                     title="Play"
                   >
-                    {t("Play")}
+                    Play
                   </button>
                   <button
                     className={styles.btn}
@@ -96,7 +87,7 @@ export default function Lobbyhandler() {
                     aria-label="Settings"
                     title="Settings"
                   >
-                    {t("Settings")}
+                    Settings
                   </button>
                   <button
                     className={styles.btn}
@@ -106,7 +97,7 @@ export default function Lobbyhandler() {
                     aria-label="Visit"
                     title="Visit"
                   >
-                    {t("Visit")}
+                    Visit
                   </button>
                 </div>
               </div>
@@ -122,14 +113,11 @@ export default function Lobbyhandler() {
       {hanlderlobby.settings && (
         <>
           <Settings
-            lang={lang}
-            setLang={setLang}
             volume={volume}
             setVolume={setVolume}
             setSound={setSound}
             sound={sound}
             close={() => lobbyfunchanlder("lobby")}
-            changelang={() => changeLanguage(lang)}
           />
         </>
       )}
