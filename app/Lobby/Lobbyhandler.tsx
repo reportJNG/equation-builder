@@ -2,15 +2,23 @@ import styles from "./Lobbyhandler.module.css";
 import { useState } from "react";
 import NameOverlay from "./NameOverlay";
 import Settings from "./Settings";
+import Loading from "../Components/Loading";
 
 export default function Lobbyhandler() {
   // Lobby state management
   const [hanlderlobby, setHandlerlobby] = useState<{
+    loading: boolean;
     play: boolean;
     settings: boolean;
     name: boolean;
     lobby: boolean;
-  }>({ play: false, settings: false, name: false, lobby: true });
+  }>({
+    play: false,
+    settings: false,
+    name: false,
+    lobby: true,
+    loading: false,
+  });
 
   const lobbyfunchanlder = (target: keyof typeof hanlderlobby) => {
     setHandlerlobby(
@@ -27,7 +35,8 @@ export default function Lobbyhandler() {
   //name state managment
   const [name, setName] = useState<string>("");
   const startgame = () => {
-    lobbyfunchanlder("play");
+    //loading state managment
+    console.log(name);
   };
 
   return (
@@ -119,6 +128,11 @@ export default function Lobbyhandler() {
             sound={sound}
             close={() => lobbyfunchanlder("lobby")}
           />
+        </>
+      )}
+      {hanlderlobby.loading && (
+        <>
+          <Loading name={name} />
         </>
       )}
     </div>
