@@ -14,7 +14,7 @@ export default function Loading({ name }: LoadingProps) {
           <div className={styles.maxleft}>
             <div className={styles.icon}>
               <div className={styles.logoPlaceholder}>
-                <span className={styles.logoText}>AI</span>
+                <span className={styles.logoText}>Brain</span>
               </div>
             </div>
           </div>

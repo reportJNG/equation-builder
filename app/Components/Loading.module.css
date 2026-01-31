@@ -66,8 +66,8 @@
 }
 
 .logoPlaceholder {
-  width: 48px;
-  height: 48px;
+  width: 72px;
+  height: 72px;
   background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
   border-radius: 12px;
   display: flex;
