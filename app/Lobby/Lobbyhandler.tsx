@@ -34,9 +34,13 @@ export default function Lobbyhandler() {
 
   //name state managment
   const [name, setName] = useState<string>("");
+
+  //loading state managment
   const startgame = () => {
-    //loading state managment
-    console.log(name);
+    lobbyfunchanlder("loading");
+    setTimeout(() => {
+      lobbyfunchanlder("lobby");
+    }, 5500);
   };
 
   return (
