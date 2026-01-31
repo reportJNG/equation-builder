@@ -311,7 +311,19 @@
 .niceLoader {
   height: 100%;
   width: 0%;
-  background: linear-gradient(90deg, #c40a0a, #072dd4, #000000);
+  background: linear-gradient(
+    90deg,
+    #020617,
+    #0b1220,
+    #0f172a,
+    #111827,
+    #1e1b4b,
+    #2b2f77,
+    #3730a3,
+    #4f46e5,
+    #5b5fc7,
+    #6366f1
+  );
   border-radius: 10px;
   animation: loadingBar 5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   position: relative;
