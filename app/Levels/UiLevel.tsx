@@ -1,19 +1,12 @@
 import styles from "./UiLevel.module.css";
 import { Signal } from "lucide-react";
+import { GameLevel } from "../Const/Level";
 interface UiLevel {
-  levelname: string;
-  level: number;
-  diffuclty: string;
+  game: GameLevel;
   playerlevel: number;
   play: () => void;
 }
-export default function UiLevel({
-  playerlevel,
-  play,
-  levelname,
-  level,
-  diffuclty,
-}: UiLevel) {
+export default function UiLevel({ playerlevel, play, game }: UiLevel) {
   return (
     <div className={styles.container}>
       <div className={styles.box}>
@@ -24,15 +17,15 @@ export default function UiLevel({
             <div className={styles.uilevel}>
               <Signal />
             </div>
-            <div className={styles.textlevel}>{level}</div>
+            <div className={styles.textlevel}>{game.level}</div>
           </div>
           <div className={styles.right}>
-            <div className={styles.diffucltytext}>{diffuclty}</div>
+            <div className={styles.diffucltytext}>{game.difficulty}</div>
           </div>
         </div>
         <div className={styles.bottom}>
           <div className={styles.textmid}>
-            <p>{levelname}</p>
+            <p>{game.levelname}</p>
           </div>
         </div>
       </div>
@@ -42,7 +35,7 @@ export default function UiLevel({
           onClick={play}
           aria-label="Play"
           title="Play"
-          disabled={playerlevel !== level}
+          disabled={playerlevel !== game.level}
         >
           Play
         </button>

@@ -1,12 +1,19 @@
 import styles from "./LevelLobby.module.css";
 import { Settings, SkipBackIcon, User } from "lucide-react";
-
+import UiLevel from "./UiLevel";
+import { AllLevels } from "../Const/Level";
+import { useState } from "react";
 interface LevelsLobbyprops {
   name: string;
 }
 export default function LevelsLobby({ name }: LevelsLobbyprops) {
+  //handler ui component
   const confirmeQuit = () => {};
   const settingsopen = () => {};
+  //handling player stat
+  const [playerLvl, setPlayerLvl] = useState<number>(0);
+  //handler game start
+  const startgame = () => {};
   return (
     <div className={styles.container}>
       <div className={styles.topbar}>
@@ -48,7 +55,12 @@ export default function LevelsLobby({ name }: LevelsLobbyprops) {
         </div>
       </div>
       <div className={styles.body}>
-        {/**call levels component show user in lobby this coponnent*/}
+        {/**call ui levels component show user in lobby this coponnent*/}
+        {AllLevels.map((val, i) => (
+          <div key={i}>
+            <UiLevel game={val} playerlevel={playerLvl} play={startgame} />
+          </div>
+        ))}
       </div>
     </div>
   );
