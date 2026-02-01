@@ -11,7 +11,7 @@ export default function LevelsLobby({ name }: LevelsLobbyprops) {
   const confirmeQuit = () => {};
   const settingsopen = () => {};
   //handling player stat
-  const [playerLvl, setPlayerLvl] = useState<number>(0);
+  const [playerLvl, setPlayerLvl] = useState<number>(1); //1 level to ??
   //handler game start
   const startgame = () => {};
   return (

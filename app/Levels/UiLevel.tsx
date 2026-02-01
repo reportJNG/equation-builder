@@ -1,5 +1,5 @@
 import styles from "./UiLevel.module.css";
-import { Signal } from "lucide-react";
+import { Flame } from "lucide-react";
 import { GameLevel } from "../Const/Level";
 interface UiLevel {
   game: GameLevel;
@@ -15,7 +15,7 @@ export default function UiLevel({ playerlevel, play, game }: UiLevel) {
         <div className={styles.top}>
           <div className={styles.left}>
             <div className={styles.uilevel}>
-              <Signal />
+              <Flame />
             </div>
             <div className={styles.textlevel}>{game.level}</div>
           </div>

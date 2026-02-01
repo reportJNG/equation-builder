@@ -11,16 +11,33 @@ export default function GameHanlder() {
 
   const [name, setName] = useState<string>("");
 
+  //state btw 2 lobby handler's
+  const [switcher, setSwitcher] = useState<boolean>(false);
+  const switchertoggle = () => {
+    setSwitcher((prev) => !prev);
+  };
+
   return (
     <div>
-      <Lobbyhandler
-        volume={volume}
-        sound={sound}
-        setVolume={setVolume}
-        setSound={setSound}
-        name={name}
-        setName={setName}
-      />
+      {!switcher && (
+        <>
+          <Lobbyhandler
+            volume={volume}
+            sound={sound}
+            setVolume={setVolume}
+            setSound={setSound}
+            name={name}
+            setName={setName}
+            gotolobbylevel={switchertoggle}
+          />
+        </>
+      )}
+
+      {switcher && (
+        <>
+          <LevelsLobby name={name} />
+        </>
+      )}
     </div>
   );
 }

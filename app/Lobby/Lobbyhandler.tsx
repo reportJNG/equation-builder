@@ -10,6 +10,7 @@ interface Lobbyhandlerprops {
   setSound: React.Dispatch<React.SetStateAction<boolean>>;
   name: string;
   setName: React.Dispatch<React.SetStateAction<string>>;
+  gotolobbylevel: () => void;
 }
 export default function Lobbyhandler({
   volume,
@@ -18,6 +19,7 @@ export default function Lobbyhandler({
   setSound,
   name,
   setName,
+  gotolobbylevel,
 }: Lobbyhandlerprops) {
   // Lobby state management
   const [hanlderlobby, setHandlerlobby] = useState<{
@@ -47,6 +49,7 @@ export default function Lobbyhandler({
     lobbyfunchanlder("loading");
     setTimeout(() => {
       lobbyfunchanlder("lobby");
+      gotolobbylevel();
     }, 5500);
   };
 
