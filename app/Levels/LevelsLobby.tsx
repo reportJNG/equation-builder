@@ -5,10 +5,11 @@ import { AllLevels } from "../Const/Level";
 import { useState } from "react";
 interface LevelsLobbyprops {
   name: string;
+  confirmeQuit: () => void;
 }
-export default function LevelsLobby({ name }: LevelsLobbyprops) {
+export default function LevelsLobby({ name, confirmeQuit }: LevelsLobbyprops) {
   //handler ui component
-  const confirmeQuit = () => {};
+  const trytoquit = () => {};
   const settingsopen = () => {};
   //handling player stat
   const [playerLvl, setPlayerLvl] = useState<number>(1); //1 level to ??
@@ -23,7 +24,7 @@ export default function LevelsLobby({ name }: LevelsLobbyprops) {
               className={styles.quitbutton}
               aria-label="Quit"
               title="Quit"
-              onClick={confirmeQuit}
+              onClick={trytoquit}
             >
               <ArrowLeft />
             </button>

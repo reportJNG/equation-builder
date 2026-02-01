@@ -35,7 +35,7 @@ export default function GameHanlder() {
 
       {switcher && (
         <>
-          <LevelsLobby name={name} />
+          <LevelsLobby name={name} confirmeQuit={switchertoggle} />
         </>
       )}
     </div>
