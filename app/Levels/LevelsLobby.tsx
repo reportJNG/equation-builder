@@ -81,11 +81,15 @@ export default function LevelsLobby({ name, confirmeQuit }: LevelsLobbyprops) {
           <LoseProgress quit={confirmeQuit} close={() => setConfirme(false)} />
         </>
       )}
-      {
+      {playing && (
         <>
-          <Level />
+          <Level
+            firstnum={AllLevels[playerLvl - 1].firstNum}
+            secondnum={AllLevels[playerLvl - 1].secondNum}
+            result={AllLevels[playerLvl - 1].result}
+          />
         </>
-      }
+      )}
     </div>
   );
 }
