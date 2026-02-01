@@ -1,5 +1,5 @@
 "use client";
-import Lobbyhandler from "./Lobby/Lobbyhandler";
+import GameHanlder from "./Game/GameHandler";
 export default function Home() {
-  return <Lobbyhandler />;
+  return <GameHanlder />;
 }

@@ -3,8 +3,22 @@ import { useState } from "react";
 import NameOverlay from "./NameOverlay";
 import Settings from "./Settings";
 import Loading from "../Components/Loading";
-
-export default function Lobbyhandler() {
+interface Lobbyhandlerprops {
+  volume: number;
+  sound: boolean;
+  setVolume: React.Dispatch<React.SetStateAction<number>>;
+  setSound: React.Dispatch<React.SetStateAction<boolean>>;
+  name: string;
+  setName: React.Dispatch<React.SetStateAction<string>>;
+}
+export default function Lobbyhandler({
+  volume,
+  setVolume,
+  sound,
+  setSound,
+  name,
+  setName,
+}: Lobbyhandlerprops) {
   // Lobby state management
   const [hanlderlobby, setHandlerlobby] = useState<{
     loading: boolean;
@@ -27,13 +41,6 @@ export default function Lobbyhandler() {
       ) as typeof hanlderlobby,
     );
   };
-
-  //settings state management
-  const [volume, setVolume] = useState<number>(50);
-  const [sound, setSound] = useState<boolean>(false);
-
-  //name state managment
-  const [name, setName] = useState<string>("");
 
   //loading state managment
   const startgame = () => {
