@@ -4,6 +4,7 @@ import UiLevel from "./UiLevel";
 import { AllLevels } from "../Const/Level";
 import { useState } from "react";
 import LoseProgress from "../Components/LoseProgress";
+import Level from "./Level";
 interface LevelsLobbyprops {
   name: string;
   confirmeQuit: () => void;
@@ -16,14 +17,16 @@ export default function LevelsLobby({ name, confirmeQuit }: LevelsLobbyprops) {
   const [playerLvl, setPlayerLvl] = useState<number>(1); //1 level to ??
 
   //handler game start
+  const [playing, setPlaying] = useState<boolean>(false);
   const startgame = () => {};
+  const endgame = () => {};
 
   //handler confirme quit lose all progress
   const [confirme, setConfirme] = useState<boolean>(false);
 
   return (
     <div className={styles.container}>
-      {!confirme && (
+      {!confirme && !playing && (
         <>
           <div className={styles.topbar}>
             <div className={styles.left}>
@@ -73,11 +76,16 @@ export default function LevelsLobby({ name, confirmeQuit }: LevelsLobbyprops) {
           </div>
         </>
       )}
-      {confirme && (
+      {confirme && !playing && (
         <>
           <LoseProgress quit={confirmeQuit} close={() => setConfirme(false)} />
         </>
       )}
+      {
+        <>
+          <Level />
+        </>
+      }
     </div>
   );
 }
