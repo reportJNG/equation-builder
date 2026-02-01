@@ -1,5 +1,4 @@
 import styles from "./Loading.module.css";
-import Image from "next/image";
 import { BotIcon, Loader2 } from "lucide-react";
 
 interface LoadingProps {

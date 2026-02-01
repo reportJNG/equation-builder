@@ -1,4 +1,5 @@
 import styles from "./LoseProgress.module.css";
+
 interface LoseProgress {
   quit: () => void;
   close: () => void;
@@ -15,19 +16,17 @@ export default function LoseProgress({ quit, close }: LoseProgress) {
 
         <div className={styles.commentwarning}>
           <p className={styles.comment}>
-            Your progress hasn’t been saved. If you leave now, all unsaved
-            changes will be lost
+            Exiting now will end this run and erase your progress
           </p>
         </div>
-      </div>
-
-      <div className={styles.actionbutton}>
-        <button aria-label="Quit" title="Quit" onClick={quit}>
-          Quit
-        </button>
-        <button aria-label="Close" title="Close" onClick={close}>
-          Close
-        </button>
+        <div className={styles.actionbutton}>
+          <button aria-label="Quit" title="Quit" onClick={quit}>
+            Quit
+          </button>
+          <button aria-label="Close" title="Close" onClick={close}>
+            Close
+          </button>
+        </div>
       </div>
     </div>
   );
