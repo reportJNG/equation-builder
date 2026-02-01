@@ -22,10 +22,8 @@
 }
 
 .box {
-  background: white;
   border-radius: 0.875rem;
   padding: 1.25rem;
-  border: 1px solid #e2e8f0;
   position: relative;
   overflow: hidden;
 }

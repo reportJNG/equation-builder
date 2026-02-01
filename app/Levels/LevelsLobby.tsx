@@ -1,5 +1,5 @@
 import styles from "./LevelLobby.module.css";
-import { Settings, SkipBackIcon, User } from "lucide-react";
+import { Settings, ArrowLeft, User } from "lucide-react";
 import UiLevel from "./UiLevel";
 import { AllLevels } from "../Const/Level";
 import { useState } from "react";
@@ -25,7 +25,7 @@ export default function LevelsLobby({ name }: LevelsLobbyprops) {
               title="Quit"
               onClick={confirmeQuit}
             >
-              <SkipBackIcon />
+              <ArrowLeft />
             </button>
           </div>
         </div>
