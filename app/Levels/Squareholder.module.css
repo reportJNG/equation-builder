@@ -1,0 +1,265 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 20px;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.bigsquare {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding: 24px;
+  background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+  border-radius: 20px;
+  box-shadow:
+    8px 8px 16px rgba(0, 0, 0, 0.08),
+    -8px -8px 16px rgba(255, 255, 255, 0.8),
+    inset 0 0 0 rgba(0, 0, 0, 0.05);
+  width: 100%;
+  position: relative;
+  min-height: 140px;
+}
+
+.eachsquare {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.eachsquare:hover {
+  transform: translateY(-4px);
+}
+
+.choosevalue {
+  width: 100%;
+  padding: 20px;
+  background: linear-gradient(145deg, #ffffff, #f0f2f5);
+  border-radius: 20px;
+  box-shadow:
+    6px 6px 12px rgba(0, 0, 0, 0.08),
+    -6px -6px 12px rgba(255, 255, 255, 0.9);
+  animation: slideUp 0.3s ease-out;
+  margin-top: 8px;
+}
+
+.squaresvalues {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px;
+  flex-wrap: wrap;
+}
+
+.onesquare {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(145deg, #ffffff, #e6e9ed);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow:
+    4px 4px 8px rgba(0, 0, 0, 0.1),
+    -4px -4px 8px rgba(255, 255, 255, 0.9);
+  transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+}
+
+.onesquare::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(100, 149, 237, 0.1) 0%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.onesquare:hover {
+  transform: translateY(-6px) scale(1.05);
+  box-shadow:
+    8px 8px 16px rgba(0, 0, 0, 0.15),
+    -8px -8px 16px rgba(255, 255, 255, 0.95);
+}
+
+.onesquare:hover::before {
+  opacity: 1;
+}
+
+.onesquare:active {
+  transform: translateY(-2px) scale(0.98);
+  box-shadow:
+    2px 2px 4px rgba(0, 0, 0, 0.1),
+    -2px -2px 4px rgba(255, 255, 255, 0.8);
+}
+
+.bigtxtvalue {
+  margin: 0;
+  font-size: 2.5rem;
+  color: #2c3e50;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.onesquare:hover .bigtxtvalue {
+  transform: scale(1.1);
+}
+
+.choosevalue::before {
+  content: "Choose Operator";
+  display: block;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #5d6d7e;
+  margin-bottom: 16px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+.bigsquare::after {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #6495ed, transparent);
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.choosevalue[style*="display: block"] ~ .bigsquare::after,
+.choosevalue:not([style*="display: none"]) ~ .bigsquare::after {
+  width: 60%;
+  opacity: 0.6;
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    box-shadow:
+      4px 4px 8px rgba(0, 0, 0, 0.1),
+      -4px -4px 8px rgba(255, 255, 255, 0.9);
+  }
+  50% {
+    box-shadow:
+      4px 4px 12px rgba(100, 149, 237, 0.3),
+      -4px -4px 12px rgba(255, 255, 255, 0.9);
+  }
+}
+
+.onesquare {
+  animation: pulseGlow 4s infinite ease-in-out;
+}
+
+@media (max-width: 768px) {
+  .bigsquare {
+    gap: 12px;
+    padding: 16px;
+    flex-wrap: wrap;
+    min-height: auto;
+  }
+
+  .eachsquare {
+    flex: 1;
+    min-width: 80px;
+    max-width: 100px;
+  }
+
+  .onesquare {
+    width: 70px;
+    height: 70px;
+  }
+
+  .bigtxtvalue {
+    font-size: 2rem;
+  }
+
+  .squaresvalues {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 12px;
+    gap: 16px;
+  }
+
+  .bigsquare {
+    gap: 8px;
+    padding: 12px;
+    border-radius: 16px;
+  }
+
+  .onesquare {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+  }
+
+  .bigtxtvalue {
+    font-size: 1.8rem;
+  }
+
+  .squaresvalues {
+    gap: 12px;
+  }
+
+  .choosevalue {
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  .choosevalue::before {
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+  }
+}
+
+.container * {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.onesquare:focus {
+  outline: 2px solid #3498db;
+  outline-offset: 2px;
+}
+
+.eachsquare.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.eachsquare.disabled:hover {
+  transform: none;
+}
