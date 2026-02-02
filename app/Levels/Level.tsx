@@ -1,5 +1,6 @@
 import styles from "./Level.module.css";
 import { ArrowLeft, User2Icon } from "lucide-react";
+import Squareholder from "./Squareholder";
 
 interface Levelprops {
   firstnum: number;
@@ -11,6 +12,8 @@ interface Levelprops {
   stopplaying: () => void;
   levelname: string;
   diffculty: string;
+  newequa: string;
+  setNewEqua: React.Dispatch<React.SetStateAction<string>>;
 }
 export default function Level({
   firstnum,
@@ -22,6 +25,8 @@ export default function Level({
   levelname,
   diffculty,
   stopplaying,
+  newequa,
+  setNewEqua,
 }: Levelprops) {
   return (
     <div className={styles.container}>
@@ -58,7 +63,18 @@ export default function Level({
       {/**here the real game engine start  */}
       {heart > 0 && (
         <>
-          <div className={styles.main}></div>
+          <div className={styles.main}>
+            <Squareholder
+              values={[
+                { val: String(firstnum), check: false },
+                { val: newequa, check: true },
+                { val: String(secondnum), check: false },
+                { val: "🟰", check: false },
+                { val: String(result), check: false },
+              ]}
+              setEquation={setNewEqua}
+            />
+          </div>
           <div className={styles.mainhanlder}>
             <button
               className={styles.checkbutton}
@@ -71,6 +87,7 @@ export default function Level({
           </div>
         </>
       )}
+      {heart <= 0 && <></>}
     </div>
   );
 }

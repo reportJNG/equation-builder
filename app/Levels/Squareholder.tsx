@@ -8,11 +8,15 @@ type SquareValue = {
 
 interface SquareholderProps {
   values: [SquareValue, SquareValue, SquareValue, SquareValue, SquareValue];
+  setEquation: React.Dispatch<React.SetStateAction<string>>;
 }
-export default function Squareholder({ values }: SquareholderProps) {
-  //here i need to manage 5 2 is unreal and 3 is real
+export default function Squareholder({
+  values,
+  setEquation,
+}: SquareholderProps) {
   const [showValues, setShowValues] = useState<boolean>(false);
   const putvalue = (val: string) => {
+    setEquation(val);
     setShowValues(false);
   };
   return (
@@ -22,7 +26,7 @@ export default function Squareholder({ values }: SquareholderProps) {
           <div className={styles.eachsquare} key={i}>
             <Square
               value={val.val}
-              iswht={val.check}
+              iswht={val.check} //if this true means clickable
               setShowValues={setShowValues}
             />
           </div>

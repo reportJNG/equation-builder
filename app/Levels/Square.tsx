@@ -1,4 +1,3 @@
-import { useState } from "react";
 import styles from "./Square.module.css";
 interface Squareprops {
   value: string;

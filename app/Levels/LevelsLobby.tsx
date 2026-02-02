@@ -27,6 +27,10 @@ export default function LevelsLobby({ name, confirmeQuit }: LevelsLobbyprops) {
   const startgame = () => {
     setPlaying(true);
   };
+
+  //handle the game test of it go open next level or not
+  const [newequa, setNewEqua] = useState<string>("🤔");
+
   const endgame = () => {
     setPlaying(false);
   };
@@ -34,6 +38,10 @@ export default function LevelsLobby({ name, confirmeQuit }: LevelsLobbyprops) {
   //handler confirme quit lose all progress
   const [confirme, setConfirme] = useState<boolean>(false);
 
+  //handler to back to lose one level progress
+  const stopplaying = () => {
+    setPlayerStat((prev) => ({ ...prev, heart: 3 }));
+  };
   return (
     <div className={styles.container}>
       {!confirme && !playing && (
@@ -104,9 +112,11 @@ export default function LevelsLobby({ name, confirmeQuit }: LevelsLobbyprops) {
             endofgame={endgame}
             heart={playerStat.heart}
             level={playerStat.level}
-            stopplaying={() => setPlaying(false)}
+            stopplaying={stopplaying}
             levelname={AllLevels[playerStat.level - 1].levelname}
             diffculty={AllLevels[playerStat.level - 1].difficulty}
+            newequa={newequa}
+            setNewEqua={setNewEqua}
           />
         </>
       )}
