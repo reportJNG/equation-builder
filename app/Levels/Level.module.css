@@ -1,7 +1,7 @@
 .container {
   width: 100%;
   min-height: 100vh;
-  background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+  background: linear-gradient(135deg, #033277 0%, #e4edf5 100%);
   display: flex;
   flex-direction: column;
   padding: 20px;
@@ -70,7 +70,7 @@
 .quitbutton {
   width: 52px;
   height: 52px;
-  background: linear-gradient(145deg, #ffffff, #e6e9ed);
+  background: linear-gradient(145deg, #eeeaea, #b6b7b8cc);
   border: none;
   border-radius: 16px;
   display: flex;
@@ -108,7 +108,7 @@
   box-shadow:
     6px 6px 12px rgba(0, 0, 0, 0.12),
     -6px -6px 12px rgba(255, 255, 255, 0.95);
-  color: #e74c3c;
+  color: #000000;
 }
 
 .quitbutton:hover::before {
@@ -167,7 +167,7 @@
 .minitxt {
   font-size: 0.85rem;
   font-weight: 600;
-  color: #5d6d7e;
+  color: #2c3946;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   opacity: 0.9;
@@ -201,13 +201,8 @@
 }
 
 .texthandler {
-  background: linear-gradient(145deg, #ffffff, #e6e9ed);
   padding: 8px 20px;
-  border-radius: 20px;
-  box-shadow:
-    4px 4px 8px rgba(0, 0, 0, 0.08),
-    -4px -4px 8px rgba(255, 255, 255, 0.9);
-  min-width: 60px;
+
   text-align: center;
 }
 
@@ -391,70 +386,6 @@
     padding: 14px 36px;
     font-size: 1rem;
     border-radius: 16px;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .container {
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-  }
-  .container::before {
-    background-image:
-      radial-gradient(
-        circle at 15% 50%,
-        rgba(120, 119, 198, 0.08) 0%,
-        transparent 55%
-      ),
-      radial-gradient(
-        circle at 85% 30%,
-        rgba(255, 119, 198, 0.05) 0%,
-        transparent 55%
-      );
-  }
-  .header {
-    background: linear-gradient(145deg, #2d3436, #222b32);
-    box-shadow:
-      8px 8px 16px rgba(0, 0, 0, 0.3),
-      -8px -8px 16px rgba(76, 80, 82, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-  }
-  .quitbutton {
-    background: linear-gradient(145deg, #3a4042, #2d3436);
-    box-shadow:
-      4px 4px 8px rgba(0, 0, 0, 0.3),
-      -4px -4px 8px rgba(76, 80, 82, 0.2);
-    color: #b2bec3;
-  }
-  .texttitle {
-    background: linear-gradient(90deg, #3498db, #ecf0f1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  .smalltext {
-    background: linear-gradient(145deg, #2d3436, #1e272e);
-    box-shadow:
-      inset 2px 2px 4px rgba(0, 0, 0, 0.3),
-      inset -2px -2px 4px rgba(76, 80, 82, 0.2);
-  }
-  .minitxt {
-    color: #b2bec3;
-  }
-  .uihandler {
-    background: linear-gradient(145deg, #3a4042, #2d3436);
-    box-shadow:
-      4px 4px 8px rgba(0, 0, 0, 0.3),
-      -4px -4px 8px rgba(76, 80, 82, 0.2);
-    color: #3498db;
-  }
-  .texthandler {
-    background: linear-gradient(145deg, #3a4042, #2d3436);
-    box-shadow:
-      4px 4px 8px rgba(0, 0, 0, 0.3),
-      -4px -4px 8px rgba(76, 80, 82, 0.2);
-  }
-  .textlevel {
-    color: #ecf0f1;
   }
 }
 

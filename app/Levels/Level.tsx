@@ -1,5 +1,5 @@
 import styles from "./Level.module.css";
-import { ArrowLeft, User2Icon } from "lucide-react";
+import { ArrowLeft, Flame } from "lucide-react";
 import Squareholder from "./Squareholder";
 
 interface Levelprops {
@@ -53,7 +53,7 @@ export default function Level({
         </div>
         <div className={styles.topright}>
           <div className={styles.uihandler}>
-            <User2Icon />
+            <Flame />
           </div>
           <div className={styles.texthandler}>
             <span className={styles.textlevel}>{level}</span>

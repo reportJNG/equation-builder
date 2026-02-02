@@ -233,9 +233,3 @@
     transition: none;
   }
 }
-
-@media (prefers-color-scheme: dark) {
-  .commentbox {
-    background: rgba(0, 0, 0, 0.2);
-  }
-}
