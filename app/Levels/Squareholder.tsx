@@ -10,6 +10,7 @@ interface SquareholderProps {
   values: [SquareValue, SquareValue, SquareValue, SquareValue, SquareValue];
 }
 export default function Squareholder({ values }: SquareholderProps) {
+  //here i need to manage 5 2 is unreal and 3 is real
   const [showValues, setShowValues] = useState<boolean>(false);
   const putvalue = (val: string) => {
     setShowValues(false);
