@@ -11,8 +11,10 @@ export default function NameOverlay({
 }: nameoverlayprops) {
   //function
   const startgame = () => {
-    if (name.length < 3 || name.length > 20) setName("Player");
-    else start();
+    if (name.length < 3 || name.length > 20) {
+      setName("Player");
+      start();
+    } else start();
   };
   return (
     <div className={styles.container}>

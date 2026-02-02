@@ -14,12 +14,22 @@ export default function LevelsLobby({ name, confirmeQuit }: LevelsLobbyprops) {
   const settingsopen = () => {};
 
   //handling player stat
-  const [playerLvl, setPlayerLvl] = useState<number>(1); //1 level to ??
+  const [playerStat, setPlayerStat] = useState<{
+    level: number;
+    heart: number;
+  }>({
+    level: 1,
+    heart: 3,
+  }); //1 level to ?? //heart to 0 === lose show him ui to restart
 
   //handler game start
   const [playing, setPlaying] = useState<boolean>(false);
-  const startgame = () => {};
-  const endgame = () => {};
+  const startgame = () => {
+    setPlaying(true);
+  };
+  const endgame = () => {
+    setPlaying(false);
+  };
 
   //handler confirme quit lose all progress
   const [confirme, setConfirme] = useState<boolean>(false);
@@ -70,7 +80,11 @@ export default function LevelsLobby({ name, confirmeQuit }: LevelsLobbyprops) {
             {/**call ui levels component show user in lobby this coponnent*/}
             {AllLevels.map((val, i) => (
               <div key={i}>
-                <UiLevel game={val} playerlevel={playerLvl} play={startgame} />
+                <UiLevel
+                  game={val}
+                  playerlevel={playerStat.level}
+                  play={startgame}
+                />
               </div>
             ))}
           </div>
@@ -84,9 +98,15 @@ export default function LevelsLobby({ name, confirmeQuit }: LevelsLobbyprops) {
       {playing && (
         <>
           <Level
-            firstnum={AllLevels[playerLvl - 1].firstNum}
-            secondnum={AllLevels[playerLvl - 1].secondNum}
-            result={AllLevels[playerLvl - 1].result}
+            firstnum={AllLevels[playerStat?.level - 1].firstNum}
+            secondnum={AllLevels[playerStat?.level - 1].secondNum}
+            result={AllLevels[playerStat?.level - 1].result}
+            endofgame={endgame}
+            heart={playerStat.heart}
+            level={playerStat.level}
+            stopplaying={() => setPlaying(false)}
+            levelname={AllLevels[playerStat.level - 1].levelname}
+            diffculty={AllLevels[playerStat.level - 1].difficulty}
           />
         </>
       )}
