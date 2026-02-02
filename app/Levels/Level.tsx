@@ -55,7 +55,22 @@ export default function Level({
           </div>
         </div>
       </div>
-      {heart > 0 && <></>}
+      {/**here the real game engine start  */}
+      {heart > 0 && (
+        <>
+          <div className={styles.main}></div>
+          <div className={styles.mainhanlder}>
+            <button
+              className={styles.checkbutton}
+              title="Check"
+              aria-label="Check"
+              onClick={endofgame}
+            >
+              Check
+            </button>
+          </div>
+        </>
+      )}
     </div>
   );
 }
