@@ -5,6 +5,7 @@ import { AllLevels } from "../Const/Level";
 import { useState } from "react";
 import LoseProgress from "../Components/LoseProgress";
 import Level from "./Level";
+import Restart from "./Restart";
 interface LevelsLobbyprops {
   name: string;
   confirmeQuit: () => void;
@@ -27,6 +28,13 @@ export default function LevelsLobby({ name, confirmeQuit }: LevelsLobbyprops) {
   const startgame = () => {
     setPlaying(true);
   };
+
+  //hanlder heart is 0
+
+  const [lostui, setLostUi] = useState<boolean>(false);
+
+  const restart = () => {};
+  const gohome = () => {};
 
   //handle the game test of it go open next level or not
   const [newequa, setNewEqua] = useState<string>("🤔");
@@ -103,7 +111,7 @@ export default function LevelsLobby({ name, confirmeQuit }: LevelsLobbyprops) {
           <LoseProgress quit={confirmeQuit} close={() => setConfirme(false)} />
         </>
       )}
-      {playing && (
+      {playing && !lostui && (
         <>
           <Level
             firstnum={AllLevels[playerStat?.level - 1].firstNum}
@@ -118,6 +126,12 @@ export default function LevelsLobby({ name, confirmeQuit }: LevelsLobbyprops) {
             newequa={newequa}
             setNewEqua={setNewEqua}
           />
+        </>
+      )}
+      {/**player lost his game show ui */}
+      {playing && lostui && (
+        <>
+          <Restart gohome={gohome} restart={restart} />
         </>
       )}
     </div>
