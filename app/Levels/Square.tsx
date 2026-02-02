@@ -1,24 +1,26 @@
 import styles from "./Square.module.css";
-interface Squareprops {
+
+interface SquareProps {
   value: string;
-  iswht: boolean;
+  iswht: boolean; // Determines if component is clickable or not
   setShowValues: React.Dispatch<React.SetStateAction<boolean>>;
 }
-export default function Square({ iswht, value, setShowValues }: Squareprops) {
-  const showvalue = () => {
-    if (!iswht) return;
-    else {
+
+export default function Square({ iswht, value, setShowValues }: SquareProps) {
+  const handleClick = () => {
+    if (iswht) {
       setShowValues(true);
     }
   };
+
   return (
     <div className={styles.container}>
-      {" "}
-      {/**is wht here sign it can be clicked or not  */}
-      <div className={styles.insideSquare} onClick={showvalue}>
+      <div
+        className={`${iswht ? styles.insideSquareclickable : styles.insideSquare}`}
+        onClick={handleClick}
+      >
         <div className={styles.bigtextholder}>
-          <h1 className={styles.text}>{value}</h1>{" "}
-          {/**it could be here a numebr and it could bt a symbol */}
+          <h1 className={styles.text}>{value}</h1>
         </div>
       </div>
     </div>
