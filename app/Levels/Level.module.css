@@ -187,11 +187,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow:
-    4px 4px 8px rgba(0, 0, 0, 0.08),
-    -4px -4px 8px rgba(255, 255, 255, 0.9);
+
   color: #3498db;
-  border: 2px solid rgba(52, 152, 219, 0.1);
 }
 
 .uihandler svg {
@@ -233,7 +230,7 @@
 }
 
 .checkbutton {
-  background: linear-gradient(145deg, #2ecc71, #27ae60);
+  background: linear-gradient(145deg, #2e72cc, #279eae);
   border: none;
   padding: 18px 48px;
   border-radius: 20px;
@@ -242,9 +239,9 @@
   color: white;
   cursor: pointer;
   box-shadow:
-    6px 6px 12px rgba(39, 174, 96, 0.2),
+    6px 6px 12px rgba(39, 109, 174, 0.2),
     -6px -6px 12px rgba(255, 255, 255, 0.1),
-    0 4px 20px rgba(46, 204, 113, 0.3);
+    0 4px 20px rgba(80, 46, 204, 0.3);
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   position: relative;
   overflow: hidden;
@@ -271,9 +268,9 @@
 .checkbutton:hover {
   transform: translateY(-4px) scale(1.05);
   box-shadow:
-    8px 8px 16px rgba(39, 174, 96, 0.25),
+    8px 8px 16px rgba(68, 39, 174, 0.25),
     -8px -8px 16px rgba(255, 255, 255, 0.1),
-    0 6px 24px rgba(46, 204, 113, 0.4);
+    0 6px 24px rgba(46, 62, 204, 0.4);
 }
 
 .checkbutton:hover::before {

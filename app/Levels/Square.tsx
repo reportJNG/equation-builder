@@ -20,7 +20,17 @@ export default function Square({ iswht, value, setShowValues }: SquareProps) {
         onClick={handleClick}
       >
         <div className={styles.bigtextholder}>
-          <h1 className={styles.text}>{value}</h1>
+          <h1 className={styles.text}>
+            {value === "*"
+              ? "✖️"
+              : value === "-"
+                ? "➖"
+                : value === "/"
+                  ? "➗"
+                  : value === "+"
+                    ? "➕"
+                    : value}
+          </h1>
         </div>
       </div>
     </div>
