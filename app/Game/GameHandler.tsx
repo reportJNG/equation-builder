@@ -4,7 +4,7 @@ import { useState } from "react";
 export default function GameHanlder() {
   //settings state management
 
-  const [volume, setVolume] = useState<number>(50);
+  const [volume, setVolume] = useState<number>(0);
   const [sound, setSound] = useState<boolean>(false);
 
   //name state managment

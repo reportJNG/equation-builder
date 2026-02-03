@@ -12,7 +12,7 @@ export default function Restart({ gohome, restart }: Restartprops) {
           <h2 className={styles.title}>Wrong Equation</h2>
           <div className={styles.commentbox}>
             <p className={styles.comment}>
-              The numbers didn’t add up this time. Think again and retry ❓
+              The numbers didn’t add up this time. Think again and retry
             </p>{" "}
           </div>
         </div>

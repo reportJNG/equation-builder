@@ -27,29 +27,31 @@ export default function LevelsLobby({ name, confirmeQuit }: LevelsLobbyprops) {
   const [playing, setPlaying] = useState<boolean>(false);
   const startgame = () => {
     setPlaying(true);
+    setNewEqua("🤔");
   };
 
   //hanlder heart is 0
 
   const [lostui, setLostUi] = useState<boolean>(false);
 
+  //handle the game test of it go open next level or not
+  const [newequa, setNewEqua] = useState<string>("🤔");
+
   const restart = () => {
     setLostUi(false);
     setPlayerStat((prev) => ({ ...prev, heart: 3 }));
+    setNewEqua("🤔");
   };
   const gohome = () => {
     setLostUi(false);
     setPlayerStat((prev) => ({ ...prev, heart: 3 }));
     setPlaying(false);
+    setNewEqua("🤔");
   };
 
-  //handle the game test of it go open next level or not
-  const [newequa, setNewEqua] = useState<string>("🤔");
-
   const endgame = () => {
-    setPlayerStat((prev) => ({ ...prev, heart: prev.heart - 1 }));
-    if (newequa !== "🤔" && playerStat.heart > 0) {
-      const level = AllLevels[playerStat!.level - 1];
+    if (newequa !== "🤔") {
+      const level = AllLevels[playerStat.level - 1];
       let result: number;
 
       switch (newequa) {
@@ -70,14 +72,26 @@ export default function LevelsLobby({ name, confirmeQuit }: LevelsLobbyprops) {
       }
 
       if (Number(result) === level.result) {
-        setPlaying(false);
-        setPlayerStat((prev) => ({ ...prev, level: prev.level + 1, heart: 3 }));
+        // Player passed the level
+        setPlayerStat((prev) => ({
+          ...prev,
+          level: prev.level + 1,
+          heart: 3,
+        }));
         setNewEqua("🤔");
         setPlaying(false);
+      } else {
+        // Player failed - lose a heart
+        setPlayerStat((prev) => ({
+          ...prev,
+          heart: prev.heart - 1,
+        }));
+
+        // Check if player has any hearts left
+        if (playerStat.heart - 1 <= 0) {
+          setLostUi(true);
+        }
       }
-    }
-    if (playerStat.heart <= 0) {
-      setLostUi(true);
     }
   };
 
