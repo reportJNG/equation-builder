@@ -7,6 +7,7 @@ import LoseProgress from "../Components/LoseProgress";
 import Level from "./Level";
 import Restart from "./Restart";
 import Settingx from "../Lobby/Settings";
+import Congrats from "./Congrats";
 interface LevelsLobbyprops {
   name: string;
   confirmeQuit: () => void;
@@ -123,7 +124,7 @@ export default function LevelsLobby({
   };
   return (
     <div className={styles.container}>
-      {!confirme && !playing && !settingsopen && (
+      {!confirme && !playing && !settingsopen && playerStat.level <= 50 && (
         <>
           <div className={styles.topbar}>
             <div className={styles.left}>
@@ -191,6 +192,12 @@ export default function LevelsLobby({
             pausemusic={pausemusic}
             changemusic={changemusic}
           />
+        </>
+      )}
+      {/**here to add congrats for the player it self when finish the game full  */}
+      {!confirme && !playing && !settingsopen && playerStat.level > 50 && (
+        <>
+          <Congrats playername={name} />
         </>
       )}
       {confirme && !playing && !settingsopen && (

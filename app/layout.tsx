@@ -1,8 +1,11 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "equation-builder",
+  title: "equation",
   description: "equation-iq",
+  icons: {
+    icon: "/brain.ico",
+  },
 };
 
 export default function RootLayout({
