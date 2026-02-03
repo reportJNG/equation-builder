@@ -4,4 +4,5 @@ settingsupdater done;
 loading done;
 levels lobby done;
 level playing done ;
-final touches working ;
+add music background done ;
+working on component of player reaching up level 51 ;

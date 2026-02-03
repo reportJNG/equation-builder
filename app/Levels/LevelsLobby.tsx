@@ -39,7 +39,7 @@ export default function LevelsLobby({
   }>({
     level: 1,
     heart: 3,
-  }); //1 level to ?? //heart to 0 === lose show him ui to restart
+  }); //1 level to 51 //heart to 0 === lose show him ui to restart
 
   //handler game start
   const [playing, setPlaying] = useState<boolean>(false);

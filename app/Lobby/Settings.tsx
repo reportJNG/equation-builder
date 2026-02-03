@@ -1,5 +1,5 @@
 import styles from "./Setting.module.css";
-import { X, LanguagesIcon, Music, Volume } from "lucide-react";
+import { X, Music, Volume } from "lucide-react";
 
 interface Settingsprops {
   volume: number;
