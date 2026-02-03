@@ -15,7 +15,7 @@ export default function Congrats({ playername }: Congratsprops) {
             <div className={styles.smalltext}>
               <div className={styles.commenthandler}>
                 <h6 className={styles.comment}>
-                  <strong>comment xxxx</strong>
+                  <strong>Thanks for playing!</strong>
                 </h6>
               </div>
             </div>
