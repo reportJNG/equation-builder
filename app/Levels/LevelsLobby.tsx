@@ -6,13 +6,31 @@ import { useState } from "react";
 import LoseProgress from "../Components/LoseProgress";
 import Level from "./Level";
 import Restart from "./Restart";
+import Settingx from "../Lobby/Settings";
 interface LevelsLobbyprops {
   name: string;
   confirmeQuit: () => void;
+  volume: number;
+  sound: boolean;
+  setVolume: React.Dispatch<React.SetStateAction<number>>;
+  setSound: React.Dispatch<React.SetStateAction<boolean>>;
+  playmusic: () => void;
+  pausemusic: () => void;
+  changemusic: () => void;
 }
-export default function LevelsLobby({ name, confirmeQuit }: LevelsLobbyprops) {
-  //handler ui component
-  const settingsopen = () => {};
+export default function LevelsLobby({
+  name,
+  confirmeQuit,
+  volume,
+  setVolume,
+  sound,
+  setSound,
+  playmusic,
+  pausemusic,
+  changemusic,
+}: LevelsLobbyprops) {
+  //handler ui component settings
+  const [settingsopen, setSettingOpen] = useState<boolean>(false);
 
   //handling player stat
   const [playerStat, setPlayerStat] = useState<{
@@ -105,7 +123,7 @@ export default function LevelsLobby({ name, confirmeQuit }: LevelsLobbyprops) {
   };
   return (
     <div className={styles.container}>
-      {!confirme && !playing && (
+      {!confirme && !playing && !settingsopen && (
         <>
           <div className={styles.topbar}>
             <div className={styles.left}>
@@ -139,7 +157,7 @@ export default function LevelsLobby({ name, confirmeQuit }: LevelsLobbyprops) {
                   <span
                     aria-label="Settings"
                     title="Settings"
-                    onClick={settingsopen}
+                    onClick={() => setSettingOpen(true)}
                   >
                     <Settings />
                   </span>
@@ -161,7 +179,21 @@ export default function LevelsLobby({ name, confirmeQuit }: LevelsLobbyprops) {
           </div>
         </>
       )}
-      {confirme && !playing && (
+      {!confirme && !playing && settingsopen && (
+        <>
+          <Settingx
+            volume={volume}
+            setVolume={setVolume}
+            setSound={setSound}
+            sound={sound}
+            close={() => setSettingOpen(false)}
+            playmusic={playmusic}
+            pausemusic={pausemusic}
+            changemusic={changemusic}
+          />
+        </>
+      )}
+      {confirme && !playing && !settingsopen && (
         <>
           <LoseProgress
             quit={confirmeQuit}

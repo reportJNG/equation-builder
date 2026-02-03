@@ -57,7 +57,17 @@ export default function GameHanlder() {
 
       {switcher && (
         <>
-          <LevelsLobby name={name} confirmeQuit={switchertoggle} />
+          <LevelsLobby
+            name={name}
+            confirmeQuit={switchertoggle}
+            playmusic={playmusic}
+            pausemusic={pausemusic}
+            changemusic={changemusic}
+            volume={volume}
+            sound={sound}
+            setVolume={setVolume}
+            setSound={setSound}
+          />
         </>
       )}
 
