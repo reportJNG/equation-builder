@@ -33,14 +33,52 @@ export default function LevelsLobby({ name, confirmeQuit }: LevelsLobbyprops) {
 
   const [lostui, setLostUi] = useState<boolean>(false);
 
-  const restart = () => {};
-  const gohome = () => {};
+  const restart = () => {
+    setLostUi(false);
+    setPlayerStat((prev) => ({ ...prev, heart: 3 }));
+  };
+  const gohome = () => {
+    setLostUi(false);
+    setPlayerStat((prev) => ({ ...prev, heart: 3 }));
+    setPlaying(false);
+  };
 
   //handle the game test of it go open next level or not
   const [newequa, setNewEqua] = useState<string>("🤔");
 
   const endgame = () => {
-    setPlaying(false);
+    setPlayerStat((prev) => ({ ...prev, heart: prev.heart - 1 }));
+    if (newequa !== "🤔" && playerStat.heart > 0) {
+      const level = AllLevels[playerStat!.level - 1];
+      let result: number;
+
+      switch (newequa) {
+        case "+":
+          result = level.firstNum + level.secondNum;
+          break;
+        case "-":
+          result = level.firstNum - level.secondNum;
+          break;
+        case "*":
+          result = level.firstNum * level.secondNum;
+          break;
+        case "/":
+          result = level.secondNum !== 0 ? level.firstNum / level.secondNum : 0;
+          break;
+        default:
+          result = 0;
+      }
+
+      if (Number(result) === level.result) {
+        setPlaying(false);
+        setPlayerStat((prev) => ({ ...prev, level: prev.level + 1, heart: 3 }));
+        setNewEqua("🤔");
+        setPlaying(false);
+      }
+    }
+    if (playerStat.heart <= 0) {
+      setLostUi(true);
+    }
   };
 
   //handler confirme quit lose all progress
@@ -49,6 +87,7 @@ export default function LevelsLobby({ name, confirmeQuit }: LevelsLobbyprops) {
   //handler to back to lose one level progress
   const stopplaying = () => {
     setPlayerStat((prev) => ({ ...prev, heart: 3 }));
+    setPlaying(false);
   };
   return (
     <div className={styles.container}>
@@ -61,7 +100,9 @@ export default function LevelsLobby({ name, confirmeQuit }: LevelsLobbyprops) {
                   className={styles.quitbutton}
                   aria-label="Quit"
                   title="Quit"
-                  onClick={() => setConfirme(true)}
+                  onClick={() => {
+                    setConfirme(true);
+                  }}
                 >
                   <ArrowLeft />
                 </button>
@@ -108,7 +149,12 @@ export default function LevelsLobby({ name, confirmeQuit }: LevelsLobbyprops) {
       )}
       {confirme && !playing && (
         <>
-          <LoseProgress quit={confirmeQuit} close={() => setConfirme(false)} />
+          <LoseProgress
+            quit={confirmeQuit}
+            close={() => {
+              setConfirme(false);
+            }}
+          />
         </>
       )}
       {playing && !lostui && (

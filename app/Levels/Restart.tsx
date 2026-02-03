@@ -1,5 +1,4 @@
 import styles from "./Restart.module.css";
-
 interface Restartprops {
   gohome: () => void;
   restart: () => void;

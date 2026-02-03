@@ -87,7 +87,6 @@ export default function Level({
           </div>
         </>
       )}
-      {heart <= 0 && <></>}
     </div>
   );
 }
