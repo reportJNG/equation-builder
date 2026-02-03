@@ -3,4 +3,5 @@ gettingName() done;
 settingsupdater done;
 loading done;
 levels lobby done;
-level playing working ;
+level playing done ;
+final touches working ;
