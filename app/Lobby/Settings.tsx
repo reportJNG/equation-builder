@@ -7,6 +7,9 @@ interface Settingsprops {
   sound: boolean;
   setSound: React.Dispatch<React.SetStateAction<boolean>>;
   close: () => void;
+  playmusic: () => void;
+  pausemusic: () => void;
+  changemusic: () => void;
 }
 
 export default function Settings({
@@ -15,6 +18,9 @@ export default function Settings({
   sound,
   setSound,
   close,
+  playmusic,
+  pausemusic,
+  changemusic,
 }: Settingsprops) {
   const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setVolume(Number(e.target.value));
@@ -40,10 +46,7 @@ export default function Settings({
                 className={sound ? styles.on : styles.off}
                 aria-label="On"
                 title="On"
-                onClick={() => {
-                  setSound(true);
-                  setVolume(50);
-                }}
+                onClick={playmusic}
               >
                 On
               </button>
@@ -51,10 +54,7 @@ export default function Settings({
                 className={!sound ? styles.on : styles.off}
                 aria-label="Off"
                 title="Off"
-                onClick={() => {
-                  setSound(false);
-                  setVolume(0);
-                }}
+                onClick={pausemusic}
               >
                 Off
               </button>
@@ -68,10 +68,12 @@ export default function Settings({
               <input
                 type="range"
                 min="0"
-                max="100"
+                max="1"
+                step="0.1"
                 value={volume}
                 onChange={handleVolumeChange}
                 className={styles.inputvolume}
+                onClick={changemusic}
               />
             </div>
           </div>

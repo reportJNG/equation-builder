@@ -1,11 +1,30 @@
 import Lobbyhandler from "../Lobby/Lobbyhandler";
 import LevelsLobby from "../Levels/LevelsLobby";
-import { useState } from "react";
+import { useRef, useState } from "react";
+
 export default function GameHanlder() {
   //settings state management
-
-  const [volume, setVolume] = useState<number>(0);
+  const music = useRef<HTMLAudioElement | null>(null);
+  const [volume, setVolume] = useState<number>(0.5);
   const [sound, setSound] = useState<boolean>(false);
+  const playmusic = () => {
+    music.current!.volume = volume;
+    music.current?.play();
+    setSound(true);
+  };
+
+  const pausemusic = () => {
+    music.current?.pause();
+    setSound(false);
+  };
+
+  const changemusic = () => {
+    if (volume !== 0) {
+      playmusic();
+    } else {
+      pausemusic();
+    }
+  };
 
   //name state managment
 
@@ -29,6 +48,9 @@ export default function GameHanlder() {
             name={name}
             setName={setName}
             gotolobbylevel={switchertoggle}
+            playmusic={playmusic}
+            pausemusic={pausemusic}
+            changemusic={changemusic}
           />
         </>
       )}
@@ -38,6 +60,8 @@ export default function GameHanlder() {
           <LevelsLobby name={name} confirmeQuit={switchertoggle} />
         </>
       )}
+
+      <audio src="/music.mp3" ref={music} autoPlay defaultValue={volume} />
     </div>
   );
 }

@@ -11,6 +11,9 @@ interface Lobbyhandlerprops {
   name: string;
   setName: React.Dispatch<React.SetStateAction<string>>;
   gotolobbylevel: () => void;
+  playmusic: () => void;
+  pausemusic: () => void;
+  changemusic: () => void;
 }
 export default function Lobbyhandler({
   volume,
@@ -20,6 +23,9 @@ export default function Lobbyhandler({
   name,
   setName,
   gotolobbylevel,
+  playmusic,
+  pausemusic,
+  changemusic,
 }: Lobbyhandlerprops) {
   // Lobby state management
   const [hanlderlobby, setHandlerlobby] = useState<{
@@ -141,6 +147,9 @@ export default function Lobbyhandler({
             setSound={setSound}
             sound={sound}
             close={() => lobbyfunchanlder("lobby")}
+            playmusic={playmusic}
+            pausemusic={pausemusic}
+            changemusic={changemusic}
           />
         </>
       )}
