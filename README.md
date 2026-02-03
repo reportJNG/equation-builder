@@ -121,7 +121,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 @Remali Hamza
 
-Project Link On Vercel : [https://github.com/yourusername/equation-calc-game](https://github.com/yourusername/equation-calc-game)
+Project Link On Vercel : [https://equation-two.vercel.app/]
 
 ---
 
