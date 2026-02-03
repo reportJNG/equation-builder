@@ -1,0 +1,316 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+    sans-serif;
+}
+
+.mainbox {
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  max-width: 1200px;
+  width: 100%;
+  padding: 40px;
+  animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.topbox {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.bigtext {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.playernamehandler {
+  margin-bottom: 15px;
+}
+
+.player {
+  font-size: 3.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.smalltext {
+  margin-top: 10px;
+}
+
+.commenthandler {
+  display: inline-block;
+  padding: 8px 24px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 50px;
+}
+
+.comment {
+  color: white;
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.midbox {
+  margin: 40px 0;
+}
+
+.prgholder {
+  text-align: center;
+}
+
+.normaltext {
+  font-size: 1.2rem;
+  color: #666;
+  font-weight: 400;
+}
+
+.gamesholder {
+  margin: 60px 0;
+}
+
+.titlegames {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.gameshldtxt {
+  font-size: 2.5rem;
+  color: #333;
+  margin: 0;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+}
+
+.gameshldtxt::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 2px;
+}
+
+.game {
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+  border-radius: 20px;
+  padding: 30px;
+  margin-bottom: 30px;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.game:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+  border-color: #667eea;
+}
+
+.boxgame {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.top {
+  text-align: center;
+}
+
+.gametitle {
+  font-size: 2rem;
+  color: #333;
+  margin: 0;
+  font-weight: 700;
+}
+
+.main {
+  text-align: center;
+}
+
+.mintxt {
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+.footer {
+  text-align: center;
+}
+
+.btngame {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 14px 42px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.btngame:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.btngame:active {
+  transform: translateY(0);
+}
+
+.visitus {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 20px;
+  padding: 40px;
+  margin-top: 40px;
+}
+
+.superbox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+
+.hello {
+  text-align: center;
+}
+
+.hellotext {
+  font-size: 3rem;
+  color: white;
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.greeting {
+  text-align: center;
+  max-width: 600px;
+}
+
+.greetingtxt {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.visitusbtn {
+  background-color: white;
+  color: #667eea;
+  border: none;
+  padding: 16px 48px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.visitusbtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  background-color: #f8f9fa;
+}
+
+.visitusbtn:active {
+  transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+  .mainbox {
+    padding: 25px;
+  }
+
+  .player {
+    font-size: 2.5rem;
+  }
+
+  .gameshldtxt {
+    font-size: 2rem;
+  }
+
+  .gametitle {
+    font-size: 1.7rem;
+  }
+
+  .hellotext {
+    font-size: 2.5rem;
+  }
+
+  .game {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 10px;
+  }
+
+  .mainbox {
+    padding: 20px;
+  }
+
+  .player {
+    font-size: 2rem;
+  }
+
+  .comment {
+    font-size: 1rem;
+  }
+
+  .gameshldtxt {
+    font-size: 1.7rem;
+  }
+
+  .gametitle {
+    font-size: 1.5rem;
+  }
+
+  .hellotext {
+    font-size: 2rem;
+  }
+
+  .greetingtxt {
+    font-size: 1.1rem;
+  }
+
+  .btngame,
+  .visitusbtn {
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
+}
